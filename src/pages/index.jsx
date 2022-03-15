@@ -3,10 +3,11 @@ import Image from "next/image";
 import styles from "../../styles/Home.module.css";
 import styled from "styled-components";
 import axios from "axios";
+import List from "./components/List";
 
 export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  height: fit-content;
   background-color: blue;
 `;
 
@@ -23,8 +24,6 @@ export const getServerSideProps = async (context) => {
 };
 
 export default function Home({ data }) {
-  console.log(data);
-
   return (
     <Container className={styles.container}>
       <Head>
@@ -33,7 +32,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>something</div>
+      <List data={data}></List>
     </Container>
   );
 }
