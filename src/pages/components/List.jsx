@@ -39,19 +39,13 @@ export const Card = styled.div`
 `;
 
 const List = ({ data }) => {
-  // console.log(data);
   const router = useRouter();
-  const [img, setImg] = useState("");
   const [images, setImages] = useState([]);
 
   useEffect(() => {
     const done = async () => {
       console.log(data);
       if (Object.entries(data).length !== 0) {
-        // const detailedItem = await axios.get(
-        //   `https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${data.id}.json`
-        // );
-
         data.forEach((item) => {
           const p = item.image.replace("images/", "");
           const picture = `https://raw.githubusercontent.com/jherr/pokemon/main/images/${p}`;

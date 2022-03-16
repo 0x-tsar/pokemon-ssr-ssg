@@ -76,7 +76,6 @@ const Detailed = () => {
       ) : (
         <></>
       )}
-      {/* <Image src={img} width={100} height={100} alt="Pokemon Image"></Image> */}
     </div>
   );
 };
