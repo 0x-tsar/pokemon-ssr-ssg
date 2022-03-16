@@ -51,6 +51,8 @@ const List = ({ data }) => {
 
           setImages((images) => [...images, picture]);
         });
+      } else {
+        return;
       }
     };
 
