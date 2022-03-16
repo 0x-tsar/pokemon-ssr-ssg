@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +10,7 @@ const Detailed = () => {
   const [img, setImg] = useState("");
   const [stats, setStats] = useState([]);
   const [type, setType] = useState([]);
+  const [name, setName] = useState("");
 
   useEffect(() => {
     const done = async () => {
@@ -21,6 +23,8 @@ const Detailed = () => {
         const detailedItem = await axios.get(
           `https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${data.id}.json`
         );
+
+        setName(detailedItem.data.name);
 
         detailedItem.data.stats.map((stat) => {
           setStats((stats) => [...stats, stat]);
@@ -51,6 +55,9 @@ const Detailed = () => {
           <h1>Go Back</h1>
         </a>
       </Link>
+      <div style={{ justifySelf: "center", textAlign: "center" }}>
+        <h1>{name}</h1>
+      </div>
       <br />
       {console.log(stats)}
       {img ? (

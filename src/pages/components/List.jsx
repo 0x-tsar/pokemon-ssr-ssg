@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -22,8 +23,8 @@ export const Container = styled.div`
 
 export const Card = styled.div`
   justify-self: center;
-  width: 150px;
-  height: 160px;
+  width: min-content;
+  height: 260px;
   border-radius: 10px;
   margin: 5px;
   border-radius: 10px;
@@ -64,7 +65,7 @@ const List = ({ data }) => {
   }, [data]);
 
   const randomRotate = () => {
-    return Math.round(Math.random() * 40) - 20;
+    return Math.round(Math.random() * 40) - 30;
   };
 
   return (
@@ -85,7 +86,10 @@ const List = ({ data }) => {
             }}
           >
             {images[i] ? (
-              <img src={images[i]} alt="img" width={150} height={170} />
+              <div>
+                <h1>{item.name}</h1>
+                <img src={images[i]} alt="img" width={150} height={170} />
+              </div>
             ) : (
               <></>
             )}
