@@ -22,6 +22,7 @@ export const Card = styled.div`
 
   :hover {
     cursor: pointer;
+
     transform: scale(1) rotate(${(props) => `${props.rotate}deg`});
   }
 `;
