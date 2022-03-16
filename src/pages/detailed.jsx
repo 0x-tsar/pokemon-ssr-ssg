@@ -48,7 +48,9 @@ const Detailed = () => {
   return (
     <div>
       <Link href="/">
-        <a>Go Back</a>
+        <a>
+          <h1>Go Back</h1>
+        </a>
       </Link>
       <br />
       {console.log(stats)}

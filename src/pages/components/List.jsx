@@ -11,12 +11,19 @@ export const Container = styled.div`
 
 export const Card = styled.div`
   width: 150px;
-  height: 200px;
+  height: 160px;
   border-radius: 10px;
   margin: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  transform: scale(0.9);
+  transition-duration: 0.2s;
 
   :hover {
     cursor: pointer;
+    /* transform: scale(1) rotate(5deg); */
+    /* display: ${(props) => `${props.rotate}deg`}; */
+    transform: scale(1) rotate(${(props) => `${props.rotate}deg`});
   }
 `;
 
@@ -45,13 +52,17 @@ const List = ({ data }) => {
     done();
   }, []);
 
+  const randomRotate = () => {
+    return Math.round(Math.random() * 40) - 20;
+  };
+
   return (
     <Container>
-      {/* {console.log(images)} */}
       {data.map((item, i) => {
         return (
           <Card
             key={i}
+            rotate={randomRotate()}
             onClick={() => {
               router.push(
                 {

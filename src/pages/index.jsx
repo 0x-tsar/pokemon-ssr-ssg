@@ -8,7 +8,6 @@ import List from "./components/List";
 export const Container = styled.div`
   max-width: 100vw;
   height: fit-content;
-  background-color: blue;
 `;
 
 export const getServerSideProps = async (context) => {
