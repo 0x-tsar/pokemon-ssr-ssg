@@ -55,9 +55,9 @@ const Detailed = () => {
       <br />
       {console.log(stats)}
       {img ? (
-        <div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <img src={img} alt="img" width={150} height={170} />
-          <div>
+          <div style={{ margin: "10px", fontSize: "20px" }}>
             {stats.map((stat, key) => {
               return (
                 <div key={key}>
