@@ -6,6 +6,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 `;
 
@@ -21,8 +22,6 @@ export const Card = styled.div`
 
   :hover {
     cursor: pointer;
-    /* transform: scale(1) rotate(5deg); */
-    /* display: ${(props) => `${props.rotate}deg`}; */
     transform: scale(1) rotate(${(props) => `${props.rotate}deg`});
   }
 `;
