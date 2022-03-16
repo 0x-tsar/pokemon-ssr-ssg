@@ -43,18 +43,20 @@ const List = ({ data }) => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    const done = async () => {
-      if (Object.entries(data).length !== 0) {
-        data.forEach((item) => {
-          const p = item.image.replace("images/", "");
-          const picture = `https://raw.githubusercontent.com/jherr/pokemon/main/images/${p}`;
+    try {
+      const done = async () => {
+        if (Object.entries(data).length !== 0) {
+          data.forEach((item) => {
+            const p = item.image.replace("images/", "");
+            const picture = `https://raw.githubusercontent.com/jherr/pokemon/main/images/${p}`;
 
-          setImages((images) => [...images, picture]);
-        });
-      } else {
-        return;
-      }
-    };
+            setImages((images) => [...images, picture]);
+          });
+        }
+      };
+    } catch (error) {
+      console.log(error);
+    }
 
     done();
   }, [data]);
