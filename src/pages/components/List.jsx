@@ -69,20 +69,20 @@ const List = ({ data }) => {
               key={i}
               rotate={randomRotate()}
               onClick={() => {
-                router.push(
-                  {
-                    pathname: `/pokemons/${item.id}`,
-                    query: item,
-                  },
-                  `/pokemons/${item.id}`
-                );
                 // router.push(
                 //   {
-                //     pathname: "/detailed",
+                //     pathname: `/pokemons/${item.id}`,
                 //     query: item,
                 //   },
-                //   "/detailed"
+                //   `/pokemons/${item.id}`
                 // );
+                router.push(
+                  {
+                    pathname: "/detailed",
+                    query: item,
+                  },
+                  "/detailed"
+                );
               }}
             >
               {images[i] ? (
