@@ -16,9 +16,6 @@ const Detailed = () => {
     const done = async () => {
       const data = router.query;
 
-      // peut etre implementer ceci aprés
-      // const url = window.location.href;
-
       if (Object.entries(data).length !== 0) {
         const detailedItem = await axios.get(
           `https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${data.id}.json`
@@ -31,10 +28,6 @@ const Detailed = () => {
         });
 
         const pokemonPicture = detailedItem.data.image.replace("images/", "");
-
-        // const imageItem = await axios.get(
-        //   `https://raw.githubusercontent.com/jherr/pokemon/main/images/${pokemonPicture}`
-        // );
 
         setImg(
           `https://raw.githubusercontent.com/jherr/pokemon/main/images/${detailedItem.data.image.replace(
@@ -59,7 +52,6 @@ const Detailed = () => {
         <h1>{name}</h1>
       </div>
       <br />
-      {console.log(stats)}
       {img ? (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <img src={img} alt="img" width={150} height={170} />

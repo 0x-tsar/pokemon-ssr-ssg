@@ -44,7 +44,6 @@ const List = ({ data }) => {
 
   useEffect(() => {
     const done = async () => {
-      console.log(data);
       if (Object.entries(data).length !== 0) {
         data.forEach((item) => {
           const p = item.image.replace("images/", "");
@@ -82,7 +81,13 @@ const List = ({ data }) => {
             {images[i] ? (
               <div>
                 <h1>{item.name}</h1>
-                <img src={images[i]} alt="img" width={150} height={170} />
+                <img
+                  src={images[i]}
+                  alt="img"
+                  style={{ borderRadius: "20px" }}
+                  width={150}
+                  height={170}
+                />
               </div>
             ) : (
               <></>
