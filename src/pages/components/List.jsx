@@ -49,7 +49,6 @@ const List = ({ data }) => {
           data.forEach((item) => {
             const p = item.image.replace("images/", "");
             const picture = `https://raw.githubusercontent.com/jherr/pokemon/main/images/${p}`;
-
             setImages((images) => [...images, picture]);
           });
         }
