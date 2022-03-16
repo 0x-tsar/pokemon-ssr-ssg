@@ -38,13 +38,14 @@ export const Card = styled.div`
 `;
 
 const List = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   const router = useRouter();
   const [img, setImg] = useState("");
   const [images, setImages] = useState([]);
 
   useEffect(() => {
     const done = async () => {
+      console.log(data);
       if (Object.entries(data).length !== 0) {
         // const detailedItem = await axios.get(
         //   `https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${data.id}.json`
@@ -60,7 +61,7 @@ const List = ({ data }) => {
     };
 
     done();
-  }, []);
+  }, [data]);
 
   const randomRotate = () => {
     return Math.round(Math.random() * 40) - 20;

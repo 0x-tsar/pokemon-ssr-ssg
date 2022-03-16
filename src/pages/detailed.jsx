@@ -22,7 +22,6 @@ const Detailed = () => {
           `https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${data.id}.json`
         );
 
-        console.log(detailedItem.data);
         detailedItem.data.stats.map((stat) => {
           setStats((stats) => [...stats, stat]);
         });
