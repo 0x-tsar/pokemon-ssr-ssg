@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -34,8 +33,8 @@ export const Card = styled.div`
 
   :hover {
     cursor: pointer;
-    transform: scale(1) rotate(10deg);
-    /* transform: scale(1) rotate(${(props) => `${props.rotate}deg`}); */
+    /* transform: scale(1) rotate(10deg); */
+    transform: scale(1) rotate(${(props) => `${props.rotate}deg`});
   }
 `;
 
@@ -51,8 +50,6 @@ const List = ({ data }) => {
           const picture = `https://raw.githubusercontent.com/jherr/pokemon/main/images/${p}`;
           setImages((images) => [...images, picture]);
         });
-      } else {
-        console.log(`NOT SUPOSE TO HAPPEN`);
       }
     };
 
@@ -65,38 +62,42 @@ const List = ({ data }) => {
 
   return (
     <Container>
-      {data.map((item, i) => {
-        return (
-          <Card
-            key={i}
-            // rotate={randomRotate()}
-            onClick={() => {
-              router.push(
-                {
-                  pathname: "/detailed",
-                  query: item,
-                },
-                "/detailed"
-              );
-            }}
-          >
-            {images[i] ? (
-              <div>
-                <h1>{item.name}</h1>
-                <img
-                  src={images[i]}
-                  alt="img"
-                  style={{ borderRadius: "20px" }}
-                  width={150}
-                  height={170}
-                />
-              </div>
-            ) : (
-              <></>
-            )}
-          </Card>
-        );
-      })}
+      {data && data ? (
+        data.map((item, i) => {
+          return (
+            <Card
+              key={i}
+              rotate={randomRotate()}
+              onClick={() => {
+                router.push(
+                  {
+                    pathname: "/detailed",
+                    query: item,
+                  },
+                  "/detailed"
+                );
+              }}
+            >
+              {images[i] ? (
+                <div>
+                  <h1>{item.name}</h1>
+                  <img
+                    src={images[i]}
+                    alt="img"
+                    style={{ borderRadius: "20px" }}
+                    width={150}
+                    height={170}
+                  />
+                </div>
+              ) : (
+                <></>
+              )}
+            </Card>
+          );
+        })
+      ) : (
+        <></>
+      )}
     </Container>
   );
 };
