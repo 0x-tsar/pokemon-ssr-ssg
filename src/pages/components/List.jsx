@@ -71,11 +71,18 @@ const List = ({ data }) => {
               onClick={() => {
                 router.push(
                   {
-                    pathname: "/detailed",
+                    pathname: `/pokemons/${item.id}`,
                     query: item,
                   },
-                  "/detailed"
+                  `/pokemons/${item.id}`
                 );
+                // router.push(
+                //   {
+                //     pathname: "/detailed",
+                //     query: item,
+                //   },
+                //   "/detailed"
+                // );
               }}
             >
               {images[i] ? (
