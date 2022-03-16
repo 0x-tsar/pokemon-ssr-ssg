@@ -69,7 +69,7 @@ const List = ({ data }) => {
         return (
           <Card
             key={i}
-            rotate={randomRotate()}
+            // rotate={randomRotate()}
             onClick={() => {
               router.push(
                 {
