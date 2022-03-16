@@ -53,11 +53,10 @@ const List = ({ data }) => {
           });
         }
       };
+      done();
     } catch (error) {
       console.log(error);
     }
-
-    done();
   }, [data]);
 
   const randomRotate = () => {
