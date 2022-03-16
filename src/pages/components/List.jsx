@@ -4,13 +4,24 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* display: flex;
   align-content: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 `;
 
 export const Card = styled.div`
+  justify-self: center;
   width: 150px;
   height: 160px;
   border-radius: 10px;
@@ -22,7 +33,6 @@ export const Card = styled.div`
 
   :hover {
     cursor: pointer;
-
     transform: scale(1) rotate(${(props) => `${props.rotate}deg`});
   }
 `;
