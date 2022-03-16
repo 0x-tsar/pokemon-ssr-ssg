@@ -34,7 +34,8 @@ export const Card = styled.div`
 
   :hover {
     cursor: pointer;
-    transform: scale(1) rotate(${(props) => `${props.rotate}deg`});
+    transform: scale(1) rotate(10deg);
+    /* transform: scale(1) rotate(${(props) => `${props.rotate}deg`}); */
   }
 `;
 
@@ -43,21 +44,19 @@ const List = ({ data }) => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    try {
-      const done = async () => {
-        if (Object.entries(data).length !== 0) {
-          data.forEach((item) => {
-            const p = item.image.replace("images/", "");
-            const picture = `https://raw.githubusercontent.com/jherr/pokemon/main/images/${p}`;
-            setImages((images) => [...images, picture]);
-          });
-        }
-      };
-      //
-      done();
-    } catch (error) {
-      console.log(error);
-    }
+    const done = async () => {
+      if (Object.entries(data).length !== 0) {
+        data.forEach((item) => {
+          const p = item.image.replace("images/", "");
+          const picture = `https://raw.githubusercontent.com/jherr/pokemon/main/images/${p}`;
+          setImages((images) => [...images, picture]);
+        });
+      } else {
+        console.log(`NOT SUPOSE TO HAPPEN`);
+      }
+    };
+
+    done();
   }, [data]);
 
   const randomRotate = () => {
